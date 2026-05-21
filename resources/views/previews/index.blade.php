@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel Enso Mail Previews</title>
+    <title>{{ $title }}</title>
     <style>
         .enso-mails-preview-page {
             background: #eef3f8;
@@ -66,7 +66,7 @@
 </head>
 <body class="enso-mails-preview-page">
     <main class="enso-mails-preview-page__main">
-        <h1 class="enso-mails-preview__title">Laravel Enso Mail Previews</h1>
+        <h1 class="enso-mails-preview__title">{{ $title }}</h1>
 
         @foreach($sections as $section)
             <section class="enso-mails-preview__section">

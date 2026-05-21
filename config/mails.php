@@ -2,7 +2,7 @@
 
 return [
     'brand' => [
-        'name' => env('ENSO_MAILS_BRAND_NAME', 'Laravel Enso'),
+        'name' => env('ENSO_MAILS_BRAND_NAME', env('APP_NAME', 'Laravel Enso')),
         'url' => env('ENSO_MAILS_BRAND_URL', env('APP_URL', 'https://laravel-enso.com')),
         'logo' => null,
         'label' => null,

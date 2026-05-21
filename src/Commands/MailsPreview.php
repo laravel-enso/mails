@@ -5,6 +5,7 @@ namespace LaravelEnso\Mails\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Mail\Markdown;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use LaravelEnso\Mails\Preview\PreviewDefinition;
 use LaravelEnso\Mails\Preview\PreviewRegistry;
@@ -80,13 +81,15 @@ class MailsPreview extends Command
             })
             ->implode("\n");
 
+        $title = htmlspecialchars($this->title(), ENT_QUOTES, 'UTF-8');
+
         return <<<HTML
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel Enso Mail Previews</title>
+    <title>{$title}</title>
     <style>
         .enso-mails-preview {
             background: #eef3f8;
@@ -149,12 +152,17 @@ class MailsPreview extends Command
 </head>
 <body class="enso-mails-preview">
     <main class="enso-mails-preview__main">
-        <h1 class="enso-mails-preview__title">Laravel Enso Mail Previews</h1>
+        <h1 class="enso-mails-preview__title">{$title}</h1>
         {$sections}
     </main>
 </body>
 </html>
 HTML;
+    }
+
+    private function title(): string
+    {
+        return Config::get('enso.mails.brand.name').' Mail Previews';
     }
 
     private function sections(Collection $previews): Collection

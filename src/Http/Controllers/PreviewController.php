@@ -21,6 +21,7 @@ class PreviewController extends Controller
 
         return View::make('laravel-enso/mails::previews.index', [
             'sections' => $registry->sections(),
+            'title' => Config::get('enso.mails.brand.name').' Mail Previews',
         ]);
     }
 
