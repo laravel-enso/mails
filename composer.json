@@ -40,7 +40,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelEnso\\Mails\\AppServiceProvider"
+                "LaravelEnso\\Mails\\AppServiceProvider",
+                "LaravelEnso\\Mails\\MailServiceProvider"
             ]
         }
     },

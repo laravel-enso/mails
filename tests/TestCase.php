@@ -3,6 +3,7 @@
 namespace LaravelEnso\Mails\Tests;
 
 use LaravelEnso\Mails\AppServiceProvider;
+use LaravelEnso\Mails\MailServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -16,6 +17,7 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             AppServiceProvider::class,
+            MailServiceProvider::class,
         ];
     }
 }

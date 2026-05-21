@@ -14,7 +14,9 @@ class PreviewTest extends TestCase
     {
         $this->get($this->previewPath())
             ->assertOk()
-            ->assertSee('Transactional');
+            ->assertSee('Boilerplates')
+            ->assertSee('Transactional')
+            ->assertSee('laravel-enso/mails::previews.transactional');
     }
 
     #[Test]
@@ -39,7 +41,6 @@ class PreviewTest extends TestCase
     {
         $this->artisan('enso:mails:preview', ['--list' => true])
             ->expectsOutput('transactional - Transactional')
-            ->expectsOutput('data-import-done - Data Import Done')
             ->expectsOutput('action-required - Action Required')
             ->expectsOutput('components - Components')
             ->assertSuccessful();
@@ -56,6 +57,8 @@ class PreviewTest extends TestCase
         $this->assertFileExists("{$output}/index.html");
         $this->assertFileExists("{$output}/components.html");
         $this->assertStringContainsString('href="components.html"', File::get("{$output}/index.html"));
+        $this->assertStringContainsString('Boilerplates', File::get("{$output}/index.html"));
+        $this->assertStringContainsString('laravel-enso/mails::previews.components', File::get("{$output}/index.html"));
 
         File::deleteDirectory($output);
     }

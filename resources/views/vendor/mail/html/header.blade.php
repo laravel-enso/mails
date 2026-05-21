@@ -9,8 +9,10 @@
 @endif
 </a>
 </td>
-<td align="right" style="color: {{ config('enso.mails.text.muted') }}; font-size: 11px; line-height: 1.2; padding: 22px 30px; vertical-align: middle; width: 50%;">
+<td align="right" style="font-size: 11px; line-height: 1.2; padding: 22px 30px; vertical-align: middle; width: 50%;">
+<a href="{{ config('enso.mails.brand.url') }}" target="_blank" rel="noopener" style="color: {{ config('enso.mails.text.muted') }}; font-weight: 600; text-decoration: none;">
 {{ config('enso.mails.brand.label') ?? parse_url(config('enso.mails.brand.url'), PHP_URL_HOST) }}
+</a>
 </td>
 </tr>
 </table>

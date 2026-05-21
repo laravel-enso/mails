@@ -20,7 +20,7 @@ class PreviewController extends Controller
         $this->authorizePreview();
 
         return View::make('laravel-enso/mails::previews.index', [
-            'previews' => $registry->all(),
+            'sections' => $registry->sections(),
         ]);
     }
 

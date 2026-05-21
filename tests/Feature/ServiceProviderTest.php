@@ -34,17 +34,17 @@ class ServiceProviderTest extends TestCase
         $previews = $this->app->make(PreviewRegistry::class)->all();
 
         $this->assertTrue($previews->has('transactional'));
-        $this->assertTrue($previews->has('table-export-done'));
-        $this->assertTrue($previews->has('data-export-ready'));
-        $this->assertTrue($previews->has('data-import-done'));
-        $this->assertTrue($previews->has('comment-tagged'));
-        $this->assertTrue($previews->has('reminder'));
         $this->assertTrue($previews->has('action-required'));
         $this->assertTrue($previews->has('report'));
         $this->assertTrue($previews->has('metrics'));
         $this->assertTrue($previews->has('components'));
         $this->assertFalse($previews->has('password-reset'));
         $this->assertFalse($previews->has('password-set'));
+        $this->assertFalse($previews->has('table-export-done'));
+        $this->assertFalse($previews->has('data-export-ready'));
+        $this->assertFalse($previews->has('data-import-done'));
+        $this->assertFalse($previews->has('comment-tagged'));
+        $this->assertFalse($previews->has('reminder'));
     }
 
     #[Test]
@@ -73,17 +73,10 @@ class ServiceProviderTest extends TestCase
                 'url' => 'https://example.com/review',
             ])->toHtml();
 
-        $reminder = $markdown
-            ->render('laravel-enso/mails::previews.reminder')
-            ->toHtml();
-
         $this->assertStringContainsString('approval-request.pdf', $html);
         $this->assertStringContainsString('Review item', $html);
-        $this->assertStringContainsString('Quarterly operations review', $reminder);
         $this->assertStringNotContainsString('&lt;table', $html);
         $this->assertStringNotContainsString('&lt;div', $html);
-        $this->assertStringNotContainsString('&lt;table', $reminder);
-        $this->assertStringNotContainsString('&lt;div', $reminder);
     }
 
     #[Test]
