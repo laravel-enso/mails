@@ -24,6 +24,8 @@ class PreviewRegistryTest extends TestCase
 
         $this->assertSame($preview, $registry->get('welcome'));
         $this->assertSame(['welcome'], $registry->all()->keys()->all());
+        $this->assertSame(PreviewDefinition::AppSpecific, $preview->section());
+        $this->assertSame(PreviewDefinition::AppSpecific, PreviewDefinition::ProjectSpecific);
     }
 
     #[Test]
@@ -59,7 +61,7 @@ class PreviewRegistryTest extends TestCase
 
         $sections = $registry->sections();
 
-        $this->assertSame(['boilerplates', 'core'], $sections->pluck('key')->all());
+        $this->assertSame([PreviewDefinition::Boilerplates, PreviewDefinition::Core], $sections->pluck('key')->all());
         $this->assertSame(
             ['Action Required', 'Components'],
             $sections->first()['previews']->map(fn (PreviewDefinition $preview) => $preview->name())->all(),

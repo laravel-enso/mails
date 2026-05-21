@@ -6,14 +6,15 @@ class PreviewDefinition
 {
     public const Boilerplates = 'boilerplates';
     public const Core = 'core';
-    public const ProjectSpecific = 'project-specific';
+    public const AppSpecific = 'app-specific';
+    public const ProjectSpecific = self::AppSpecific;
 
     public function __construct(
         private string $key,
         private string $name,
         private string $view,
         private array $data = [],
-        private string $section = self::ProjectSpecific,
+        private string $section = self::AppSpecific,
     ) {
     }
 
@@ -47,7 +48,7 @@ class PreviewDefinition
         return [
             self::Boilerplates => 'Boilerplates',
             self::Core => 'Core',
-            self::ProjectSpecific => 'Project Specific',
+            self::AppSpecific => 'App Specific',
         ];
     }
 }

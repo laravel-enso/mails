@@ -56,7 +56,7 @@ Do not publish views just to customize brand colors, logo, spacing, or font. Use
 - Local preview catalog for browser review.
 - Artisan preview command for listing and rendering static HTML previews.
 - Built-in boilerplate previews for transactional, action-required, report, metrics, and the full component catalog.
-- Preview sections for boilerplates, Enso package-owned mail, and project-specific mail.
+- Preview sections for boilerplates, Enso package-owned mail, and app-specific mail.
 
 ## Usage
 
@@ -168,7 +168,7 @@ class MailServiceProvider extends ServiceProvider
                 'name' => 'Jane Doe',
                 'url' => 'https://example.test/password/reset/token',
             ],
-            section: PreviewDefinition::ProjectSpecific,
+            section: PreviewDefinition::AppSpecific,
         ));
     }
 }
