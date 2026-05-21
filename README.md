@@ -1,4 +1,4 @@
-# Laravel Enso Mails
+# Mails
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/laravel-enso/mails/blob/main/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/mails/v/stable)](https://packagist.org/packages/laravel-enso/mails)
