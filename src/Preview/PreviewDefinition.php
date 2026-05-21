@@ -7,7 +7,6 @@ class PreviewDefinition
     public const Boilerplates = 'boilerplates';
     public const Core = 'core';
     public const AppSpecific = 'app-specific';
-    public const ProjectSpecific = self::AppSpecific;
 
     public function __construct(
         private string $key,
