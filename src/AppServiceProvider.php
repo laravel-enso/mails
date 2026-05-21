@@ -59,18 +59,6 @@ class AppServiceProvider extends ServiceProvider
                 data: ['url' => 'https://example.com/settings'],
             ),
             new PreviewDefinition(
-                key: 'password-reset',
-                name: 'Password Reset',
-                view: 'laravel-enso/mails::previews.password-reset',
-                data: ['url' => 'https://example.com/password/reset/token'],
-            ),
-            new PreviewDefinition(
-                key: 'password-set',
-                name: 'Password Set',
-                view: 'laravel-enso/mails::previews.password-set',
-                data: ['url' => 'https://example.com/password/set/token'],
-            ),
-            new PreviewDefinition(
                 key: 'table-export-done',
                 name: 'Table Export Done',
                 view: 'laravel-enso/mails::previews.table-export-done',

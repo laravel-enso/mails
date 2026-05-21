@@ -34,8 +34,6 @@ class ServiceProviderTest extends TestCase
         $previews = $this->app->make(PreviewRegistry::class)->all();
 
         $this->assertTrue($previews->has('transactional'));
-        $this->assertTrue($previews->has('password-reset'));
-        $this->assertTrue($previews->has('password-set'));
         $this->assertTrue($previews->has('table-export-done'));
         $this->assertTrue($previews->has('data-export-ready'));
         $this->assertTrue($previews->has('data-import-done'));
@@ -45,6 +43,8 @@ class ServiceProviderTest extends TestCase
         $this->assertTrue($previews->has('report'));
         $this->assertTrue($previews->has('metrics'));
         $this->assertTrue($previews->has('components'));
+        $this->assertFalse($previews->has('password-reset'));
+        $this->assertFalse($previews->has('password-set'));
     }
 
     #[Test]

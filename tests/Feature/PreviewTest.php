@@ -39,7 +39,6 @@ class PreviewTest extends TestCase
     {
         $this->artisan('enso:mails:preview', ['--list' => true])
             ->expectsOutput('transactional - Transactional')
-            ->expectsOutput('password-reset - Password Reset')
             ->expectsOutput('data-import-done - Data Import Done')
             ->expectsOutput('action-required - Action Required')
             ->expectsOutput('components - Components')

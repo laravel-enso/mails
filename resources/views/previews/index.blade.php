@@ -1,46 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel Enso Mail Previews</title>
     <style>
         body {
-            background: #f4f7fb;
-            color: #111827;
+            background: #eef3f8;
+            color: #202938;
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             margin: 0;
-            padding: 32px;
+            padding: 40px;
         }
 
-        main {
+        .enso-mails-preview {
             margin: 0 auto;
-            max-width: 760px;
+            max-width: 720px;
         }
 
-        h1 {
+        .enso-mails-preview__title {
             font-size: 24px;
             margin: 0 0 24px;
         }
 
-        a {
+        .enso-mails-preview__link {
             background: #ffffff;
-            border: 1px solid #d9e2ec;
-            border-radius: 8px;
-            color: #155eef;
+            border: 1px solid #e1e8f0;
+            border-radius: 10px;
+            color: #202938;
             display: block;
-            margin-bottom: 12px;
-            padding: 16px 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding: 14px 16px;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <main>
-        <h1>Laravel Enso Mail Previews</h1>
+    <main class="enso-mails-preview">
+        <h1 class="enso-mails-preview__title">Laravel Enso Mail Previews</h1>
 
         @foreach($previews as $preview)
-            <a href="{{ route('enso-mails-preview.show', $preview->key()) }}" target="_blank" rel="noopener">
+            <a class="enso-mails-preview__link" href="{{ route('enso-mails-preview.show', $preview->key()) }}" target="_blank" rel="noopener">
                 {{ $preview->name() }}
             </a>
         @endforeach
