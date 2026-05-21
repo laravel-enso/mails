@@ -1,0 +1,1 @@
+{{ $slot }} {{ isset($meta) ? "({$meta})" : '' }}

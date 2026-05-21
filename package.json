@@ -1,0 +1,14 @@
+{
+  "name": "@laravel-enso/mails",
+  "description": "MJML build tooling for Laravel Enso mail layouts",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/compile-emails.mjs",
+    "build:check": "node scripts/compile-emails.mjs --check"
+  },
+  "devDependencies": {
+    "mjml": "^4.16.1"
+  }
+}
