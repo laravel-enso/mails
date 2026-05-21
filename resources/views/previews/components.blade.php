@@ -45,6 +45,9 @@ Dark
 mail::button
 @endcomponent
 
+@component('mail::button', ['url' => 'https://example.com/accent'])
+Accent action
+@endcomponent
 @component('mail::button', ['url' => 'https://example.com/primary', 'variant' => 'primary'])
 Primary action
 @endcomponent
