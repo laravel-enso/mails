@@ -55,7 +55,8 @@ Do not publish views just to customize brand colors, logo, spacing, or font. Use
 - Runtime mail sending without Node.js or MJML.
 - Local preview catalog for browser review.
 - Artisan preview command for listing and rendering static HTML previews.
-- Built-in generic Enso preview examples, including password reset, password setup, table export, data export, data import, comment tag, reminder, action required, report, metrics, and a full component catalog.
+- Built-in boilerplate previews for transactional, action-required, report, metrics, and the full component catalog.
+- Preview sections for boilerplates, Enso package-owned mail, and project-specific mail.
 
 ## Usage
 
@@ -144,25 +145,33 @@ Open a specific preview:
 
 The route is intended for local and staging review. It does not send email; it renders preview views with fake structured data.
 
-### Registering Application Previews
+### Registering Package And Application Previews
 
-Applications can register their own previews through the registry:
+Packages and applications can register their own previews through the registry. Package-owned mail previews should live in a dedicated `MailServiceProvider` and packages that use the shared mail layouts should require `laravel-enso/mails` directly in `composer.json`.
 
 ```php
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
 use LaravelEnso\Mails\Preview\PreviewDefinition;
 use LaravelEnso\Mails\Preview\PreviewRegistry;
 
-$registry = app(PreviewRegistry::class);
-
-$registry->register(new PreviewDefinition(
-    key: 'reset-password',
-    name: 'Reset Password',
-    view: 'laravel-enso/core::emails.reset',
-    data: [
-        'name' => 'Jane Doe',
-        'url' => url('/password/reset/token'),
-    ],
-));
+class MailServiceProvider extends ServiceProvider
+{
+    public function boot(PreviewRegistry $registry): void
+    {
+        $registry->register(new PreviewDefinition(
+            key: 'reset-password',
+            name: 'Reset Password',
+            view: 'laravel-enso/core::emails.reset',
+            data: [
+                'name' => 'Jane Doe',
+                'url' => 'https://example.test/password/reset/token',
+            ],
+            section: PreviewDefinition::ProjectSpecific,
+        ));
+    }
+}
 ```
 
 Preview data should be fake and structured. Framework previews should not hardcode application-specific brand names, colors, logos, or business logic.
