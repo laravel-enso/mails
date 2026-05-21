@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-enso/mails');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-enso/mails');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->configureMarkdown();
@@ -54,5 +55,9 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views/vendor/mail' => $this->app->resourcePath('views/vendor/mail'),
         ], ['mails-views', 'enso-mail']);
+
+        $this->publishes([
+            __DIR__.'/../resources/lang' => $this->app->langPath('vendor/laravel-enso/mails'),
+        ], ['mails-lang', 'enso-lang']);
     }
 }

@@ -3,8 +3,8 @@
 @endphp
 
 @if($content === '')
-Cu stimă,
-Echipa {{ config('enso.mails.brand.name') }}
+{{ __('laravel-enso/mails::signature.regards') }}
+{{ __('laravel-enso/mails::signature.team', ['brand' => config('enso.mails.brand.name')]) }}
 @else
 {{ $slot }}
 @endif
