@@ -43,7 +43,17 @@
     
   
     
-    
+     
+    <style type="text/css">
+@media only screen and (max-width: 480px) {
+        .enso-mail-frame { padding: 32px 0 48px !important; }
+        .enso-mail-card { width: calc(100% - 12px) !important; }
+        .enso-mail-content-section > table > tbody > tr > td { padding: 30px 18px 24px !important; }
+        .enso-mail-header-left { padding: 22px 18px !important; }
+        .enso-mail-header-right { padding: 22px 18px !important; }
+        .enso-mail-footer-cell { padding-left: 18px !important; padding-right: 18px !important; }
+      }
+    </style>
     
   </head>
   <body style="word-spacing:normal;background-color:{{ config('enso.mails.layout.background') }};">
@@ -51,13 +61,13 @@
     <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">{{ config('enso.mails.brand.name') }}</div>
   
     
-      <div aria-label="{{ config('enso.mails.brand.name') }}" aria-roledescription="email" style="background-color:{{ config('enso.mails.layout.background') }};" role="article" lang="und" dir="auto">
+      <div class="enso-mail-frame" aria-label="{{ config('enso.mails.brand.name') }}" aria-roledescription="email" style="background-color:{{ config('enso.mails.layout.background') }}; padding: 56px 0 80px;" role="article" lang="und" dir="auto">
         
       
       <!--[if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="enso-mail-card-outlook" role="presentation" style="width:760px;" width="760" bgcolor="{{ config('enso.mails.layout.surface') }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
     
       
-      <div class="enso-mail-card" style="margin: 24px auto; width: calc(100% - 32px); box-shadow: 0 20px 48px rgba(32, 41, 56, .13), 0 2px 8px rgba(32, 41, 56, .06); background: {{ config('enso.mails.layout.surface') }}; background-color: {{ config('enso.mails.layout.surface') }}; margin: 0px auto; max-width: 760px; border-radius: {{ config('enso.mails.layout.card_radius') }}px; overflow: hidden;">
+      <div class="enso-mail-card" style="width: calc(100% - 32px); box-shadow: 0 20px 48px rgba(32, 41, 56, .13), 0 2px 8px rgba(32, 41, 56, .06); background: {{ config('enso.mails.layout.surface') }}; background-color: {{ config('enso.mails.layout.surface') }}; margin: 0px auto; max-width: 760px; border-radius: {{ config('enso.mails.layout.card_radius') }}px; overflow: hidden;">
         
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-radius: {{ config('enso.mails.layout.card_radius') }}px; overflow: hidden; background: {{ config('enso.mails.layout.surface') }}; background-color: {{ config('enso.mails.layout.surface') }}; width: 100%; border-collapse: separate;" width="100%" bgcolor="{{ config('enso.mails.layout.surface') }}">
           <tbody>
@@ -66,10 +76,10 @@
                 <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><![endif]-->
                   
       @include('mail::header')
-          <!--[if mso | IE]><tr><td class="" width="760px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:758px;" width="758" bgcolor="{{ config('enso.mails.layout.surface') }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+          <!--[if mso | IE]><tr><td class="enso-mail-content-section-outlook" width="760px" ><table align="center" border="0" cellpadding="0" cellspacing="0" class="enso-mail-content-section-outlook" role="presentation" style="width:758px;" width="758" bgcolor="{{ config('enso.mails.layout.surface') }}" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
     
       
-      <div style="background:{{ config('enso.mails.layout.surface') }};background-color:{{ config('enso.mails.layout.surface') }};margin:0px auto;max-width:758px;">
+      <div class="enso-mail-content-section" style="background:{{ config('enso.mails.layout.surface') }};background-color:{{ config('enso.mails.layout.surface') }};margin:0px auto;max-width:758px;">
         
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{ config('enso.mails.layout.surface') }};background-color:{{ config('enso.mails.layout.surface') }};width:100%;">
           <tbody>

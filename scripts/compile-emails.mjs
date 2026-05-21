@@ -39,13 +39,18 @@ const replacements = new Map([
   ['ENSO_FOOTER', "@include('mail::footer')"],
 ]);
 
-const withCardMargin = (html) => html.replaceAll(
+const withCardWidth = (html) => html.replaceAll(
   '<div class="enso-mail-card" style="',
-  '<div class="enso-mail-card" style="margin: 24px auto; width: calc(100% - 32px); ',
+  '<div class="enso-mail-card" style="width: calc(100% - 32px); ',
+);
+
+const withFrameSpacing = (html) => html.replace(
+  /<div aria-label="([^"]+)" aria-roledescription="email" style="background-color:([^;]+);" role="article"/,
+  '<div class="enso-mail-frame" aria-label="$1" aria-roledescription="email" style="background-color:$2; padding: 56px 0 80px;" role="article"',
 );
 
 const compiledOutput = (html) => {
-  let output = withCardMargin(html.trim());
+  let output = withFrameSpacing(withCardWidth(html.trim()));
 
   for (const [search, replacement] of replacements.entries()) {
     output = output.replaceAll(search, replacement);

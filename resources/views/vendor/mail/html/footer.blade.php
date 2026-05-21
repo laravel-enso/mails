@@ -7,7 +7,7 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background: {{ config('enso.mails.layout.background') }}; border-top: 1px solid {{ config('enso.mails.layout.border') }};">
 <tr>
-<td align="center" style="color: {{ config('enso.mails.text.muted') }}; font-size: 10px; line-height: 1.4; padding: 14px 30px;">
+<td class="enso-mail-footer-cell" align="center" style="color: {{ config('enso.mails.text.muted') }}; font-size: 10px; line-height: 1.4; padding: 14px 30px;">
 <span>{{ $footerText }}</span><br>
 <span>{{ $footerLegal }}</span>
 @if(count(config('enso.mails.footer.links', [])) > 0)

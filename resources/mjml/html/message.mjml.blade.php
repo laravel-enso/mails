@@ -24,13 +24,24 @@
       .table th { background: #F5F7FA; border-bottom: 1px solid #DBDBDB; color: #7A7A7A; font-size: 10px; font-weight: 800; letter-spacing: .08em; padding: 9px 12px; text-align: left; text-transform: uppercase; }
       .table td { border-bottom: 1px solid #DBDBDB; color: #4A4A4A; font-size: 13px; padding: 9px 12px; vertical-align: top; }
     </mj-style>
+
+    <mj-style>
+      @media only screen and (max-width: 480px) {
+        .enso-mail-frame { padding: 32px 0 48px !important; }
+        .enso-mail-card { width: calc(100% - 12px) !important; }
+        .enso-mail-content-section > table > tbody > tr > td { padding: 30px 18px 24px !important; }
+        .enso-mail-header-left { padding: 22px 18px !important; }
+        .enso-mail-header-right { padding: 22px 18px !important; }
+        .enso-mail-footer-cell { padding-left: 18px !important; padding-right: 18px !important; }
+      }
+    </mj-style>
   </mj-head>
 
   <mj-body width="ENSO_WIDTH">
     <mj-wrapper css-class="enso-mail-card" background-color="#FFFFFF" border="1px solid #DBDBDB" border-radius="18px" padding="0">
       <mj-raw>ENSO_HEADER</mj-raw>
 
-      <mj-section background-color="#FFFFFF" padding="28px 30px 24px">
+      <mj-section css-class="enso-mail-content-section" background-color="#FFFFFF" padding="28px 30px 24px">
         <mj-column>
           <mj-text>ENSO_SLOT</mj-text>
           ENSO_SUBCOPY
