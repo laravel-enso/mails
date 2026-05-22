@@ -3,7 +3,7 @@
 Review required
 @endcomponent
 
-@component('mail::file', ['meta' => 'PDF · expires in 7 days'])
+@component('mail::file', ['meta' => 'PDF · expires in 7 days', 'url' => 'https://example.com/files/approval-request.pdf'])
 approval-request.pdf
 @endcomponent
 

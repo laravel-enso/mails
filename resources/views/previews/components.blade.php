@@ -142,10 +142,10 @@ This is a panel body rendered through the Laravel Markdown-compatible component.
 mail::file
 @endcomponent
 
-@component('mail::file', ['meta' => 'XLSX · 24 KB'])
+@component('mail::file', ['meta' => 'XLSX · 24 KB', 'url' => 'https://example.com/files/users-export.xlsx'])
 users-export.xlsx
 @endcomponent
-@component('mail::file', ['icon' => 'PDF', 'meta' => 'expires in 7 days'])
+@component('mail::file', ['icon' => 'PDF', 'meta' => 'expires in 7 days', 'url' => 'https://example.com/files/approval-request.pdf'])
 approval-request.pdf
 @endcomponent
 

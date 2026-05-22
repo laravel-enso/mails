@@ -11,7 +11,7 @@ System report
 @endforeach
 @endcomponent
 
-@component('mail::file', ['meta' => '24 KB'])
+@component('mail::file', ['meta' => '24 KB', 'url' => 'https://example.com/files/system-report.xlsx'])
 system-report.xlsx
 @endcomponent
 @endcomponent

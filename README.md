@@ -269,6 +269,8 @@ Reusable Markdown components:
 - `mail::divider`
 - `mail::signature`
 
+`mail::file` accepts optional `url`, `meta`, and `icon` parameters. When `url` is present, the whole file pill is rendered as a hyperlink, which is useful for generated exports or downloadable documents.
+
 Layout and compatibility components:
 
 - `mail::layout`
